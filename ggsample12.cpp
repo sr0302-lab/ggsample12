@@ -99,8 +99,8 @@ int GgApp::main(int argc, const char* const* argv)
     // 投影変換行列
     const auto mp{ ggPerspective(0.5f, window.getAspect(), 1.0f, 15.0f) };
 
-    // 鏡像用のシェーダの選択
-    mirror.use(mp, mv * mm * window.getRotationMatrix(), lightBuffer);
+    // 鏡像用のシェーダの選択(課題変更箇所)
+    mirror.use(mp, mv * mr * mm * window.getRotationMatrix(), lightBuffer);
     lightBuffer.loadPosition(reflected.data());
 
     // 鏡像の描画
